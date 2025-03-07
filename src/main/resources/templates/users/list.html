@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Управление пользователями</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 12px; border: 1px solid #ddd; }
+    th { background-color: #f2f2f2; }
+    a { margin-right: 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Пользователи</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Имя</th>
+    <th>Email</th>
+    <th>Роль</th>
+    <th>Telegram Chat ID</th>
+    <th>Действия</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="user : ${users}">
+    <td th:text="${user.id}"></td>
+    <td th:text="${user.username}"></td>
+    <td th:text="${user.email}"></td>
+    <td th:text="${user.role}"></td>
+    <td th:text="${user.telegramChatId}"></td>
+    <td>
+      <a th:href="@{'/users/edit/' + ${user.id}}">✏️ Редактировать</a>
+      <a th:href="@{'/users/delete/' + ${user.id}}" onclick="return confirm('Удалить пользователя?');">🗑️ Удалить</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a href="/" style="display: inline-block; margin-top: 20px;">⬅️ Назад</a>
+
+</body>
+</html>

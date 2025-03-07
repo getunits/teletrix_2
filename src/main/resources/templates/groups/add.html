@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавить группу</title>
+</head>
+<body>
+<h1>Добавить группу</h1>
+<form action="/templates/templates/add" method="post" th:object="${group}">
+    <label>Название:</label>
+    <input type="text" th:field="*{name}" /><br/>
+    <label>Telegram ID:</label>
+    <input type="text" th:field="*{telegramId}" /><br/>
+    <button type="submit">Сохранить</button>
+</form>
+<a href="/templates/groupstes/groups">Назад к списку групп</a>
+</body>
+</html>
